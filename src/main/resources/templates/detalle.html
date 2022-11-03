@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <header th:replace="layout/plantilla :: header"></header>
+    <section id="actions" class="py-4 mb-4 bg-light">
+        <div class="container">
+            <div class="row">
+            </div>
+        </div>
+    </section>
+    <a th:href="@{/}" class="btn btn-primary">Regresar</a>
+    <br>
+    <br>
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>[[#{ticket.id}]]</th>
+                <th>[[#{ticket.titulo}]]</th>
+                <th>[[#{ticket.fecha}]]</th>
+                <th>[[#{ticket.nombreResponsable}]]</th>
+                <th>[[#{ticket.equipoResponsable}]]</th>
+                <th>[[#{ticket.tipoIncidencia}]]</th>
+                <th>[[#{ticket.gravedad}]]</th>
+                <th>[[#{ticket.version}]]</th>
+                <th>[[#{ticket.descripcion}]]</th>
+                <th>[[#{ticket.editar}]]</th>
+                <th>[[#{ticket.archivar}]]</th>
+
+            </tr>
+            <tr>
+                <td th:text="${ticket.id}">Mostrar id</td>
+                <td th:text="${ticket.titulo}">Mostrar titulo</td>
+                <td th:text="${ticket.fecha}">Mostrar Fecha</td>
+                <td th:text="${ticket.nombreResponsable}">Mostrar Nombre</td>
+                <td th:text="${ticket.equipoResponsable}">Mostrar Area</td>
+                <td th:text="${ticket.incidencia}">Mostrar equipo</td>
+                <td th:text="${ticket.gravedad}">Mostrar gravedad</td>
+                <td th:text="${ticket.version}">Mostrar version</td>
+                <td th:text="${ticket.descripcion}">Mostrar Descripcion</td>
+                <td><a th:href="@{/editar/} + ${ticket.id}" th:text="Editar"></a></td>
+            </tr>
+        </table>
+    <footer th:replace="layout/plantilla :: footer"></footer>
+</body>
+
+</html>
